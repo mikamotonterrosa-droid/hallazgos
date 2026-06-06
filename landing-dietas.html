@@ -86,7 +86,7 @@
                 <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-lg transition">
                     <div class="w-12 h-12 bg-brand-100 rounded-xl flex items-center justify-center text-brand-600 mb-4 text-2xl">🧂</div>
                     <h3 class="text-xl font-bold text-gray-900 mb-2">Bajo en sal</h3>
-                    <p class="text-gray-600">Menos de 2000 mg de sodio al día, usando sazón con especias y limón, sin enlatadosAddedProcessed.</p>
+                    <p class="text-gray-600">Menos de 2000 mg de sodio al día, usando sazón con especias y limón, sin enlatados, frituras ni productos procesados.</p>
                 </div>
                 <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-lg transition">
                     <div class="w-12 h-12 bg-brand-100 rounded-xl flex items-center justify-center text-brand-600 mb-4 text-2xl">🌮</div>
@@ -272,9 +272,41 @@
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl font-bold mb-4">¿Listo para comer rico, sin sal y con más energía?</h2>
             <p class="text-brand-100 mb-8 text-lg">Recibe tu plan semanal mexicano de 1500 kcal, sin enlatados ni productos exóticos. Adaptado a tu caminata.</p>
-            <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onsubmit="event.preventDefault(); alert('¡Gracias! Un nutriólogo se pondrá en contacto contigo pronto.');">
-                <input type="email" placeholder="Tu correo electrónico" required class="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-300">
-                <button type="submit" class="bg-white text-brand-700 px-6 py-3 rounded-lg font-semibold hover:bg-brand-50 transition">Enviar</button>
+            <form id="contactForm" class="max-w-md mx-auto space-y-4" onsubmit="handleSubmit(event)">
+            <div>
+            <input type="text" id="nombre" placeholder="Tu nombre" required class="w-full px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-300 bg-white">
+            </div>
+            <div>
+            <input type="email" id="email" placeholder="Tu correo electrónico" required class="w-full px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-300 bg-white">
+            </div>
+            <div>
+            <label class="block text-left text-sm font-medium text-brand-100 mb-1">¿Tienes hipertensión?</label>
+            <select id="hipertension" class="w-full px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-300 bg-white">
+            <option value="no">No</option>
+            <option value="si">Sí</option>
+            </select>
+            </div>
+            <div>
+            <label class="block text-left text-sm font-medium text-brand-100 mb-1">¿Diabetes?</label>
+            <select id="diabetes" class="w-full px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-300 bg-white">
+            <option value="no">No</option>
+            <option value="1">Tipo 1</option>
+            <option value="2">Tipo 2</option>
+            <option value="insulinodependiente">Insulinodependiente</option>
+            </select>
+            </div>
+            <div>
+            <label class="block text-left text-sm font-medium text-brand-100 mb-1">Nivel de actividad</label>
+            <select id="actividad" class="w-full px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-300 bg-white">
+            <option value="sedentario">Sedentario</option>
+            <option value="moderado" selected>Moderado (caminatas)</option>
+            <option value="activo">Activo</option>
+            </select>
+            </div>
+            <div id="formMessage" class="hidden text-sm font-medium text-center py-2"></div>
+            <button type="submit" id="submitBtn" class="w-full bg-white text-brand-700 px-6 py-3 rounded-lg font-semibold hover:bg-brand-50 transition">
+            Generar mi plan PDF
+            </button>
             </form>
         </div>
     </section>
@@ -287,5 +319,47 @@
         </div>
     </footer>
 
-</body>
+ async function handleSubmit(ev) {
+ ev.preventDefault();
+ const msg = document.getElementById('formMessage');
+ const btn = document.getElementById('submitBtn');
+ msg.classList.add('hidden');
+ const data = {
+ nombre: (document.getElementById('nombre').value || '').trim(),
+ email: (document.getElementById('email').value || '').trim(),
+ hipertension: document.getElementById('hipertension').value,
+ diabetes: document.getElementById('diabetes').value,
+ actividad: document.getElementById('actividad').value,
+ };
+ if (!data.nombre || !data.email) { showMsg('Por favor completa nombre y correo.', 'error'); return; }
+ btn.disabled = true;
+ try {
+ const res = await fetch('https://dietamex-backend.onrender.com/api/current-plan', {
+ method: 'POST',
+ headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+ body: new URLSearchParams(data),
+ });
+ if (!res.ok) throw new Error('No se pudo generar el plan. Intenta de nuevo.');
+ const blob = await res.blob();
+ const url = URL.createObjectURL(blob);
+ const a = document.createElement('a');
+ a.href = url;
+ a.download = 'plan-semanal-dietamex-45.pdf';
+ document.body.appendChild(a);
+ a.click();
+ a.remove();
+ URL.revokeObjectURL(url);
+ showMsg('¡Plan listo! Se descargó tu PDF con las reglas ajustadas a tu perfil.', 'success');
+ } catch (e) {
+ showMsg(e.message || 'Error al generar el plan.', 'error');
+ } finally {
+ btn.disabled = false;
+ }
+ }
+ function showMsg(text, type) {
+ const msg = document.getElementById('formMessage');
+ msg.textContent = text;
+ msg.className = 'text-sm font-medium text-center py-2 ' + (type === 'error' ? 'text-red-300' : 'text-brand-100');
+ msg.classList.remove('hidden');
+ }
 </html>
