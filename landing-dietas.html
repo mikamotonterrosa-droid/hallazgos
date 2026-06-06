@@ -57,8 +57,9 @@
                 Sin dietas extremas, ni productos exóticos. 4 a 6 comidas al día para caminar con energía.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#plan" class="bg-brand-600 text-white px-8 py-3 rounded-xl text-lg font-semibold hover:bg-brand-700 transition shadow-lg shadow-brand-500/20">
-                    Ver plan semanal
+                <a href="#plan" id="verPlanBtn" onclick="return showPlanRegistro()" class="bg-brand-600 text-white px-8 py-3 rounded-xl text-lg font-semibold hover:bg-brand-700 transition shadow-lg shadow-brand-500/20">
+                Ver plan semanal
+                </a>
                 </a>
                 <a href="plan-semanal-dietamex-45.pdf" download class="bg-red-600 text-white px-8 py-3 rounded-xl text-lg font-semibold hover:bg-red-700 transition shadow-lg shadow-red-500/20">
                     Descargar PDF
@@ -96,138 +97,178 @@
             </div>
         </div>
     </section>
-
-    <!-- Plan Semanal -->
     <section id="plan" class="py-20 bg-gray-50">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4">Plan semanal — 1500 kcal, 4 a 6 comidas</h2>
-                <p class="text-gray-600">Ingredientes accesibles en cualquier mercado o súper mexicano. Sin productos importados.</p>
-            </div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+    <h2 class="text-3xl font-bold text-gray-900 mb-4">Plan semanal — 1500 kcal, 4 a 6 comidas</h2>
+    <p class="text-gray-600">Ingredientes accesibles en cualquier mercado o súper mexicano. Sin productos importados.</p>
+    </div>
 
-            <div class="grid gap-4">
-                <!-- Lunes -->
-                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-                    <div class="flex items-center justify-between mb-3">
-                        <h3 class="text-lg font-bold text-gray-900">Lunes — 1500 kcal (5 comidas)</h3>
-                        <span class="bg-brand-100 text-brand-700 px-3 py-1 rounded-full text-sm font-medium">Frijoles</span>
-                    </div>
-                    <div class="grid sm:grid-cols-5 gap-3 text-sm">
-                        <div><strong class="block text-gray-900">Desayuno (300 kcal)</strong><span class="text-gray-600">Huevo revuelto (2) con nopal y tomate, 1 tortilla de maíz.</span></div>
-                        <div><strong class="block text-gray-900">Almuerzo (400 kcal)</strong><span class="text-gray-600">Pollo desmenuzado (120 g) con calabacita, 1 taza de frijoles y 2 tortillas.</span></div>
-                        <div><strong class="block text-gray-900">Merienda 1 (200 kcal)</strong><span class="text-gray-600">Jicama con limón y chile en polvo (sin sal).</span></div>
-                        <div><strong class="block text-gray-900">Merienda 2 (300 kcal)</strong><span class="text-gray-600">Yogur natural sin azúcar + nueces (8 pzas).</span></div>
-                        <div><strong class="block text-gray-900">Cena (300 kcal)</strong><span class="text-gray-600">Sopa de verduras (calabacín, zanahoria, elote) con pollo deshebrado.</span></div>
-                    </div>
-                </div>
+    <div id="planRegistro" class="hidden max-w-lg mx-auto bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
+    <h3 class="text-2xl font-bold text-gray-900 mb-2 text-center">Tu plan empieza aquí</h3>
+    <p class="text-gray-600 text-center mb-6">Regístrate y te mostraremos el plan sin costo.</p>
+    <form id="planForm" class="space-y-4" onsubmit="handlePlanSubmit(event)">
+    <div>
+    <label class="block text-left text-sm font-medium text-gray-700 mb-1">Nombre</label>
+    <input type="text" id="planNombre" required class="w-full px-4 py-3 rounded-lg text-gray-900 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-300">
+    </div>
+    <div>
+    <label class="block text-left text-sm font-medium text-gray-700 mb-1">Correo electrónico</label>
+    <input type="email" id="planEmail" required class="w-full px-4 py-3 rounded-lg text-gray-900 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-300">
+    </div>
+    <div>
+    <label class="block text-left text-sm font-medium text-gray-700 mb-1">¿Tienes hipertensión?</label>
+    <select id="planHipertension" class="w-full px-4 py-3 rounded-lg text-gray-900 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-300">
+    <option value="no">No</option>
+    <option value="si">Sí</option>
+    </select>
+    </div>
+    <div>
+    <label class="block text-left text-sm font-medium text-gray-700 mb-1">¿Diabetes?</label>
+    <select id="planDiabetes" class="w-full px-4 py-3 rounded-lg text-gray-900 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-300">
+    <option value="no">No</option>
+    <option value="1">Tipo 1</option>
+    <option value="2">Tipo 2</option>
+    <option value="insulinodependiente">Insulinodependiente</option>
+    </select>
+    </div>
+    <div>
+    <label class="block text-left text-sm font-medium text-gray-700 mb-1">Nivel de actividad</label>
+    <select id="planActividad" class="w-full px-4 py-3 rounded-lg text-gray-900 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-300">
+    <option value="sedentario">Sedentario</option>
+    <option value="moderado" selected>Moderado (caminatas)</option>
+    <option value="activo">Activo</option>
+    </select>
+    </div>
+    <button type="submit" id="planSubmitBtn" class="w-full bg-brand-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-700 transition">
+    Ver mi plan semanal
+    </button>
+    <div id="planFormMessage" class="hidden text-sm font-medium text-center py-2"></div>
+    </form>
+    </div>
 
-                <!-- Martes -->
-                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-                    <div class="flex items-center justify-between mb-3">
-                        <h3 class="text-lg font-bold text-gray-900">Martes — 1500 kcal (5 comidas)</h3>
-                        <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">Pescado</span>
-                    </div>
-                    <div class="grid sm:grid-cols-5 gap-3 text-sm">
-                        <div><strong class="block text-gray-900">Desayuno (300 kcal)</strong><span class="text-gray-600">Licuado de avena con leche light, plátano y canela.</span></div>
-                        <div><strong class="block text-gray-900">Almuerzo (400 kcal)</strong><span class="text-gray-600">Filete de pescado a la plancha (120 g), arroz integral y ensalada de jícama.</span></div>
-                        <div><strong class="block text-gray-900">Merienda 1 (200 kcal)</strong><span class="text-gray-600">Tostada de maíz con aguacate (¼ pieza) y limón.</span></div>
-                        <div><strong class="block text-gray-900">Merienda 2 (300 kcal)</strong><span class="text-gray-600">Manzana al horno con canela.</span></div>
-                        <div><strong class="block text-gray-900">Cena (300 kcal)</strong><span class="text-gray-600">Caldo de pollo con verduras y una tortilla de maíz.</span></div>
-                    </div>
-                </div>
+    <div id="planContenido" class="hidden">
+    <div class="grid gap-4">
+    <!-- Lunes -->
+    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+    <div class="flex items-center justify-between mb-3">
+    <h3 class="text-lg font-bold text-gray-900">Lunes — 1500 kcal (5 comidas)</h3>
+    <span class="bg-brand-100 text-brand-700 px-3 py-1 rounded-full text-sm font-medium">Frijoles</span>
+    </div>
+    <div class="grid sm:grid-cols-5 gap-3 text-sm">
+    <div><strong class="block text-gray-900">Desayuno (300 kcal)</strong><span class="text-gray-600">Huevo revuelto (2) con nopal y tomate, 1 tortilla de maíz.</span></div>
+    <div><strong class="block text-gray-900">Almuerzo (400 kcal)</strong><span class="text-gray-600">Pollo desmenuzado (120 g) con calabacita, 1 taza de frijoles y 2 tortillas.</span></div>
+    <div><strong class="block text-gray-900">Merienda 1 (200 kcal)</strong><span class="text-gray-600">Jicama con limón y chile en polvo (sin sal).</span></div>
+    <div><strong class="block text-gray-900">Merienda 2 (300 kcal)</strong><span class="text-gray-600">Yogur natural sin azúcar + nueces (8 pzas).</span></div>
+    <div><strong class="block text-gray-900">Cena (300 kcal)</strong><span class="text-gray-600">Sopa de verduras (calabacín, zanahoria, elote) con pollo deshebrado.</span></div>
+    </div>
+    </div>
 
-                <!-- Miércoles -->
-                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-                    <div class="flex items-center justify-between mb-3">
-                        <h3 class="text-lg font-bold text-gray-900">Miércoles — 1500 kcal (6 comidas)</h3>
-                        <span class="bg-amber-100 text-amber-700 px-3 py-1 rounded-full text-sm font-medium">Lentejas</span>
-                    </div>
-                    <div class="grid sm:grid-cols-6 gap-3 text-sm">
-                        <div><strong class="block text-gray-900">Desayuno (250 kcal)</strong><span class="text-gray-600">Té de hierbabuena, 1 pan dulce pequeño.</span></div>
-                        <div><strong class="block text-gray-900">Col. media mañana (200 kcal)</strong><span class="text-gray-600">Gelatina light sin azúcar.</span></div>
-                        <div><strong class="block text-gray-900">Almuerzo (350 kcal)</strong><span class="text-gray-600">Guiso de lentejas con zanahoria y calabacín, y una naranja.</span></div>
-                        <div><strong class="block text-gray-900">Merienda 1 (200 kcal)</strong><span class="text-gray-600">Pepino con limón y chile.</span></div>
-                        <div><strong class="block text-gray-900">Merienda 2 (250 kcal)</strong><span class="text-gray-600">Palomitas de maíz (sin sal, sin mantequilla).</span></div>
-                        <div><strong class="block text-gray-900">Cena (250 kcal)</strong><span class="text-gray-600">Crema de chayote con elote y una tortilla.</span></div>
-                    </div>
-                </div>
+    <!-- Martes -->
+    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+    <div class="flex items-center justify-between mb-3">
+    <h3 class="text-lg font-bold text-gray-900">Martes — 1500 kcal (5 comidas)</h3>
+    <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">Pescado</span>
+    </div>
+    <div class="grid sm:grid-cols-5 gap-3 text-sm">
+    <div><strong class="block text-gray-900">Desayuno (300 kcal)</strong><span class="text-gray-600">Licuado de avena con leche light, plátano y canela.</span></div>
+    <div><strong class="block text-gray-900">Almuerzo (400 kcal)</strong><span class="text-gray-600">Filete de pescado a la plancha (120 g), arroz integral y ensalada de jícama.</span></div>
+    <div><strong class="block text-gray-900">Merienda 1 (200 kcal)</strong><span class="text-gray-600">Tostada de maíz con aguacate (¼ pieza) y limón.</span></div>
+    <div><strong class="block text-gray-900">Merienda 2 (300 kcal)</strong><span class="text-gray-600">Manzana al horno con canela.</span></div>
+    <div><strong class="block text-gray-900">Cena (300 kcal)</strong><span class="text-gray-600">Caldo de pollo con verduras y una tortilla de maíz.</span></div>
+    </div>
+    </div>
 
-                <!-- Jueves -->
-                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-                    <div class="flex items-center justify-between mb-3">
-                        <h3 class="text-lg font-bold text-gray-900">Jueves — 1500 kcal (5 comidas)</h3>
-                        <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium">Res magra</span>
-                    </div>
-                    <div class="grid sm:grid-cols-5 gap-3 text-sm">
-                        <div><strong class="block text-gray-900">Desayuno (300 kcal)</strong><span class="text-gray-600">Avena cocida con leche light y trozos de pera.</span></div>
-                        <div><strong class="block text-gray-900">Almuerzo (400 kcal)</strong><span class="text-gray-600">Bistec de res magra (120 g), ensalada de nopales y 2 tortillas.</span></div>
-                        <div><strong class="block text-gray-900">Merienda 1 (200 kcal)</strong><span class="text-gray-600">Naranja fileteada.</span></div>
-                        <div><strong class="block text-gray-900">Merienda 2 (300 kcal)</strong><span class="text-gray-600">Yogur natural sin azúcar con fresas.</span></div>
-                        <div><strong class="block text-gray-900">Cena (300 kcal)</strong><span class="text-gray-600">Sopa de verduras con pollo y limón.</span></div>
-                    </div>
-                </div>
+    <!-- Miércoles -->
+    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+    <div class="flex items-center justify-between mb-3">
+    <h3 class="text-lg font-bold text-gray-900">Miércoles — 1500 kcal (6 comidas)</h3>
+    <span class="bg-amber-100 text-amber-700 px-3 py-1 rounded-full text-sm font-medium">Lentejas</span>
+    </div>
+    <div class="grid sm:grid-cols-6 gap-3 text-sm">
+    <div><strong class="block text-gray-900">Desayuno (250 kcal)</strong><span class="text-gray-600">Té de hierbabuena, 1 pan dulce pequeño.</span></div>
+    <div><strong class="block text-gray-900">Col. media mañana (200 kcal)</strong><span class="text-gray-600">Gelatina light sin azúcar.</span></div>
+    <div><strong class="block text-gray-900">Almuerzo (350 kcal)</strong><span class="text-gray-600">Guiso de lentejas con zanahoria y calabacín, y una naranja.</span></div>
+    <div><strong class="block text-gray-900">Merienda 1 (200 kcal)</strong><span class="text-gray-600">Pepino con limón y chile.</span></div>
+    <div><strong class="block text-gray-900">Merienda 2 (250 kcal)</strong><span class="text-gray-600">Palomitas de maíz (sin sal, sin mantequilla).</span></div>
+    <div><strong class="block text-gray-900">Cena (250 kcal)</strong><span class="text-gray-600">Crema de chayote con elote y una tortilla.</span></div>
+    </div>
+    </div>
 
-                <!-- Viernes -->
-                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-                    <div class="flex items-center justify-between mb-3">
-                        <h3 class="text-lg font-bold text-gray-900">Viernes — 1500 kcal (5 comidas)</h3>
-                        <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm font-medium">Pavo</span>
-                    </div>
-                    <div class="grid sm:grid-cols-5 gap-3 text-sm">
-                        <div><strong class="block text-gray-900">Desayuno (300 kcal)</strong><span class="text-gray-600">Chilaquiles verdes (2 tortillas, queso panela, sin crema).</span></div>
-                        <div><strong class="block text-gray-900">Almuerzo (400 kcal)</strong><span class="text-gray-600">Pechuga de pavo (120 g), arroz con verduras y ensalada.</span></div>
-                        <div><strong class="block text-gray-900">Merienda 1 (200 kcal)</strong><span class="text-gray-600">Kiwi en rodajas.</span></div>
-                        <div><strong class="block text-gray-900">Merienda 2 (300 kcal)</strong><span class="text-gray-600">Tortilla de maíz con frijoles negros (¼ taza).</span></div>
-                        <div><strong class="block text-gray-900">Cena (300 kcal)</strong><span class="text-gray-600">Caldo tlalpeño light (pollo y verduras, sin grasa extra).</span></div>
-                    </div>
-                </div>
+    <!-- Jueves -->
+    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+    <div class="flex items-center justify-between mb-3">
+    <h3 class="text-lg font-bold text-gray-900">Jueves — 1500 kcal (5 comidas)</h3>
+    <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium">Res magra</span>
+    </div>
+    <div class="grid sm:grid-cols-5 gap-3 text-sm">
+    <div><strong class="block text-gray-900">Desayuno (300 kcal)</strong><span class="text-gray-600">Avena cocida con leche light y trozos de pera.</span></div>
+    <div><strong class="block text-gray-900">Almuerzo (400 kcal)</strong><span class="text-gray-600">Bistec de res magra (120 g), ensalada de nopales y 2 tortillas.</span></div>
+    <div><strong class="block text-gray-900">Merienda 1 (200 kcal)</strong><span class="text-gray-600">Naranja fileteada.</span></div>
+    <div><strong class="block text-gray-900">Merienda 2 (300 kcal)</strong><span class="text-gray-600">Yogur natural sin azúcar con fresas.</span></div>
+    <div><strong class="block text-gray-900">Cena (300 kcal)</strong><span class="text-gray-600">Sopa de verduras con pollo y limón.</span></div>
+    </div>
+    </div>
 
-                <!-- Sábado -->
-                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-                    <div class="flex items-center justify-between mb-3">
-                        <h3 class="text-lg font-bold text-gray-900">Sábado — 1500 kcal (6 comidas)</h3>
-                        <span class="bg-teal-100 text-teal-700 px-3 py-1 rounded-full text-sm font-medium">Hidratación</span>
-                    </div>
-                    <div class="grid sm:grid-cols-6 gap-3 text-sm">
-                        <div><strong class="block text-gray-900">Desayuno (250 kcal)</strong><span class="text-gray-600">Té de limón, 1 huevo cocido.</span></div>
-                        <div><strong class="block text-gray-900">Col. media mañana (150 kcal)</strong><span class="text-gray-600">Gelatina light sin azúcar.</span></div>
-                        <div><strong class="block text-gray-900">Almuerzo (350 kcal)</strong><span class="text-gray-600">Tacos de canasta de pollo (3 uds) con salsa de jitomate, no crema.</span></div>
-                        <div><strong class="block text-gray-900">Merienda 1 (200 kcal)</strong><span class="text-gray-600">Zanahoria baby con limón.</span></div>
-                        <div><strong class="block text-gray-900">Merienda 2 (300 kcal)</strong><span class="text-gray-600">Ensalada de elote, jícama y pepino con limón.</span></div>
-                        <div><strong class="block text-gray-900">Cena (250 kcal)</strong><span class="text-gray-600">Crema de flor de calabaza con una tortilla.</span></div>
-                    </div>
-                </div>
+    <!-- Viernes -->
+    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+    <div class="flex items-center justify-between mb-3">
+    <h3 class="text-lg font-bold text-gray-900">Viernes — 1500 kcal (5 comidas)</h3>
+    <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm font-medium">Pavo</span>
+    </div>
+    <div class="grid sm:grid-cols-5 gap-3 text-sm">
+    <div><strong class="block text-gray-900">Desayuno (300 kcal)</strong><span class="text-gray-600">Chilaquiles verdes (2 tortillas, queso panela, sin crema).</span></div>
+    <div><strong class="block text-gray-900">Almuerzo (400 kcal)</strong><span class="text-gray-600">Pechuga de pavo (120 g), arroz con verduras y ensalada.</span></div>
+    <div><strong class="block text-gray-900">Merienda 1 (200 kcal)</strong><span class="text-gray-600">Kiwi en rodajas.</span></div>
+    <div><strong class="block text-gray-900">Merienda 2 (300 kcal)</strong><span class="text-gray-600">Tortilla de maíz con frijoles negros (¼ taza).</span></div>
+    <div><strong class="block text-gray-900">Cena (300 kcal)</strong><span class="text-gray-600">Caldo tlalpeño light (pollo y verduras, sin grasa extra).</span></div>
+    </div>
+    </div>
 
-                <!-- Domingo -->
-                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-                    <div class="flex items-center justify-between mb-3">
-                        <h3 class="text-lg font-bold text-gray-900">Domingo — 1500 kcal (5 comidas)</h3>
-                        <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm font-medium">Descanso</span>
-                    </div>
-                    <div class="grid sm:grid-cols-5 gap-3 text-sm">
-                        <div><strong class="block text-gray-900">Desayuno (300 kcal)</strong><span class="text-gray-600">Fruta de temporada (papaya o sandía, 1 taza) + 1 rebanada de pan integral.</span></div>
-                        <div><strong class="block text-gray-900">Almuerzo (400 kcal)</strong><span class="text-gray-600">Sopa de fideo con pollo (poca sal) y ensalada de lechuga.</span></div>
-                        <div><strong class="block text-gray-900">Merienda 1 (200 kcal)</strong><span class="text-gray-600">Pera en rodajas.</span></div>
-                        <div><strong class="block text-gray-900">Merienda 2 (300 kcal)</strong><span class="text-gray-600">Licuado de leche light + avena y canela.</span></div>
-                        <div><strong class="block text-gray-900">Cena (300 kcal)</strong><span class="text-gray-600">Calabacitas rellenas de atún al vapor (sin aceite).</span></div>
-                    </div>
-                </div>
-            </div>
+    <!-- Sábado -->
+    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+    <div class="flex items-center justify-between mb-3">
+    <h3 class="text-lg font-bold text-gray-900">Sábado — 1500 kcal (6 comidas)</h3>
+    <span class="bg-teal-100 text-teal-700 px-3 py-1 rounded-full text-sm font-medium">Hidratación</span>
+    </div>
+    <div class="grid sm:grid-cols-6 gap-3 text-sm">
+    <div><strong class="block text-gray-900">Desayuno (250 kcal)</strong><span class="text-gray-600">Té de limón, 1 huevo cocido.</span></div>
+    <div><strong class="block text-gray-900">Col. media mañana (150 kcal)</strong><span class="text-gray-600">Gelatina light sin azúcar.</span></div>
+    <div><strong class="block text-gray-900">Almuerzo (350 kcal)</strong><span class="text-gray-600">Tacos de canasta de pollo (3 uds) con salsa de jitomate, no crema.</span></div>
+    <div><strong class="block text-gray-900">Merienda 1 (200 kcal)</strong><span class="text-gray-600">Zanahoria baby con limón.</span></div>
+    <div><strong class="block text-gray-900">Merienda 2 (300 kcal)</strong><span class="text-gray-600">Ensalada de elote, jícama y pepino con limón.</span></div>
+    <div><strong class="block text-gray-900">Cena (250 kcal)</strong><span class="text-gray-600">Crema de flor de calabaza con una tortilla.</span></div>
+    </div>
+    </div>
 
-            <div class="text-center mt-10">
-                <p class="text-gray-600 mb-6">
-                    Plan de 1500 kcal/day con menos de 2000 mg de sodio, sin enlatados, frituras ni productos procesados. 
-                    Usa tortilla de maíz, frijoles de olla, verduras frescas y especias: orégano, cilantro, ajo, cebolla y limón.
-                </p>
-                <a href="#contacto" class="bg-brand-600 text-white px-8 py-3 rounded-xl text-lg font-semibold hover:bg-brand-700 transition shadow-lg shadow-brand-500/20">
-                    Quiero mi plan semanal mexicano
-                </a>
-            </div>
-        </div>
+    <!-- Domingo -->
+    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+    <div class="flex items-center justify-between mb-3">
+    <h3 class="text-lg font-bold text-gray-900">Domingo — 1500 kcal (5 comidas)</h3>
+    <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm font-medium">Descanso</span>
+    </div>
+    <div class="grid sm:grid-cols-5 gap-3 text-sm">
+    <div><strong class="block text-gray-900">Desayuno (300 kcal)</strong><span class="text-gray-600">Fruta de temporada (papaya o sandía, 1 taza) + 1 rebanada de pan integral.</span></div>
+    <div><strong class="block text-gray-900">Almuerzo (400 kcal)</strong><span class="text-gray-600">Sopa de fideo con pollo (poca sal) y ensalada de lechuga.</span></div>
+    <div><strong class="block text-gray-900">Merienda 1 (200 kcal)</strong><span class="text-gray-600">Pera en rodajas.</span></div>
+    <div><strong class="block text-gray-900">Merienda 2 (300 kcal)</strong><span class="text-gray-600">Licuado de leche light + avena y canela.</span></div>
+    <div><strong class="block text-gray-900">Cena (300 kcal)</strong><span class="text-gray-600">Calabacitas rellenas de atún al vapor (sin aceite).</span></div>
+    </div>
+    </div>
+
+    <div class="text-center mt-10">
+    <p class="text-gray-600 mb-6"> Plan de 1500 kcal/day con menos de 2000 mg de sodio, sin enlatados, frituras ni productos procesados. Usa tortilla de maíz, frijoles de olla, verduras frescas y especias: orégano, cilantro, ajo, cebolla y limón. </p>
+    <a href="#contacto" class="bg-brand-600 text-white px-8 py-3 rounded-xl text-lg font-semibold hover:bg-brand-700 transition shadow-lg shadow-brand-500/20"> Quiero mi plan semanal mexicano </a>
+    </div>
+    </div>
+    </div>
     </section>
+                    </div>
+                    </div>
+                    </section>
 
-    <!-- Testimonios -->
-    <section id="testimonios" class="py-20 bg-white">
+                    <!-- Testimonios -->
+                    <section id="testimonios" class="py-20 bg-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">Personas reales, resultados reales</h2>
@@ -319,47 +360,63 @@
         </div>
     </footer>
 
- async function handleSubmit(ev) {
- ev.preventDefault();
- const msg = document.getElementById('formMessage');
- const btn = document.getElementById('submitBtn');
- msg.classList.add('hidden');
- const data = {
- nombre: (document.getElementById('nombre').value || '').trim(),
- email: (document.getElementById('email').value || '').trim(),
- hipertension: document.getElementById('hipertension').value,
- diabetes: document.getElementById('diabetes').value,
- actividad: document.getElementById('actividad').value,
- };
- if (!data.nombre || !data.email) { showMsg('Por favor completa nombre y correo.', 'error'); return; }
- btn.disabled = true;
- try {
- const res = await fetch('https://dietamex-backend.onrender.com/api/current-plan', {
- method: 'POST',
- headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
- body: new URLSearchParams(data),
- });
- if (!res.ok) throw new Error('No se pudo generar el plan. Intenta de nuevo.');
- const blob = await res.blob();
- const url = URL.createObjectURL(blob);
- const a = document.createElement('a');
- a.href = url;
- a.download = 'plan-semanal-dietamex-45.pdf';
- document.body.appendChild(a);
- a.click();
- a.remove();
- URL.revokeObjectURL(url);
- showMsg('¡Plan listo! Se descargó tu PDF con las reglas ajustadas a tu perfil.', 'success');
- } catch (e) {
- showMsg(e.message || 'Error al generar el plan.', 'error');
- } finally {
- btn.disabled = false;
- }
- }
- function showMsg(text, type) {
- const msg = document.getElementById('formMessage');
- msg.textContent = text;
- msg.className = 'text-sm font-medium text-center py-2 ' + (type === 'error' ? 'text-red-300' : 'text-brand-100');
- msg.classList.remove('hidden');
- }
+<script>
+async function handlePlanSubmit(ev) {
+  ev.preventDefault();
+  const msg = document.getElementById('planFormMessage');
+  const btn = document.getElementById('planSubmitBtn');
+  msg.classList.add('hidden');
+
+  const data = {
+    nombre: (document.getElementById('planNombre').value || '').trim(),
+    email: (document.getElementById('planEmail').value || '').trim(),
+    hipertension: document.getElementById('planHipertension').value,
+    diabetes: document.getElementById('planDiabetes').value,
+    actividad: document.getElementById('planActividad').value,
+  };
+
+  if (!data.nombre || !data.email) {
+    msg.textContent = 'Por favor completa nombre y correo.';
+    msg.className = 'text-sm font-medium text-center py-2 text-red-600';
+    msg.classList.remove('hidden');
+    return;
+  }
+
+  btn.disabled = true;
+  try {
+    const res = await fetch('https://dietamex-backend.onrender.com/api/current-plan', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(data),
+    });
+    if (!res.ok) throw new Error();
+
+    const blob = await res.blob();
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'plan-semanal-dietamex-45.pdf';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+
+    document.getElementById('planRegistro').classList.add('hidden');
+    document.getElementById('planContenido').classList.remove('hidden');
+    msg.classList.add('hidden');
+  } catch {
+    msg.textContent = 'No se pudo generar el plan. Intenta de nuevo.';
+    msg.className = 'text-sm font-medium text-center py-2 text-red-600';
+    msg.classList.remove('hidden');
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+function showPlanRegistro() {
+  document.getElementById('planRegistro').classList.remove('hidden');
+  document.getElementById('planContenido').classList.add('hidden');
+  window.scrollTo({ top: document.getElementById('plan').offsetTop - 80, behavior: 'smooth' });
+  return false;
+}
 </html>
