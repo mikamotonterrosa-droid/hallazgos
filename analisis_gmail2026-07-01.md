@@ -1,143 +1,111 @@
-# Análisis de Bandeja de Entrada - 01 de Julio de 2026
+REPORTE DE ANALISIS CONSOLIDADO DE CORREOS
+Cuenta: webbospatulunch@gmail.com
 
-## Resumen Ejecutivo
 
-Se analizaron **28 correos no leídos** de la bandeja de entrada de `webbospatulunch@gmail.com`, ordenados cronológicamente desde el 6 de mayo al 11 de junio de 2026.  
-Se identificaron **20 correos relevantes** sobre avances de IA y comportamiento de agentes inteligentes.
+1) RESUMEN EJECUTIVO
 
----
+Se analizaron un total de 20 correos electronicos de la bandeja de entrada.
+IDs procesados: 1887, 1888, 1895, 1896, 1899, 1904, 1909, 1898, 1900, 1901, 1905, 1908, 1911, 1886, 1894, 1897, 1903, 1912, 1891, 1892.
+Rango de fechas: del 8 de mayo de 2026 al 11 de junio de 2026.
+Resultado de relevancia: los 20 correos analizados resultaron relevantes y se clasificaron en tres grupos tematicos. No se identificaron correos irrelevantes dentro de este conjunto.
 
-## Correos Relevantes (20)
 
-### Avances y Modelos de IA
+2) AGRUPACION TEMATICA
 
-1. **AI News & Innovations Tracker is ready**
-   - De: noreply@x.ai
-   - Fecha: 2026-05-11
-   - ID: 1887
+A) AVANCES Y MODELOS DE IA
+(12 correos)
 
-2. **GPT-5 Prompt Gems 💎**
-   - De: mohamed.kerroudj@9419842.brevosend.com
-   - Fecha: 2026-05-13
-   - ID: 1888
+- Asunto: AI News & Innovations Tracker is ready
+  Remitente: Grok <noreply@x.ai>
+  Fecha: 11 de mayo de 2026, 15:03 UTC
 
-3. **Build Android apps in minutes with simple prompts**
-   - De: googleaistudio-noreply@google.com
-   - Fecha: 2026-05-21
-   - ID: 1895
+- Asunto: GPT-5 Prompt Gems
+  Remitente: Prompy <mohamed.kerroudj@9419842.brevosend.com>
+  Fecha: 13 de mayo de 2026, 07:43 UTC
 
-4. **AI News & Innovations Tracker is ready**
-   - De: noreply@x.ai
-   - Fecha: 2026-05-25
-   - ID: 1896
+- Asunto: Build Android apps in minutes with simple prompts
+  Remitente: Google AI Studio <googleaistudio-noreply@google.com>
+  Fecha: 21 de mayo de 2026, 09:40 PDT
 
-5. **New AI models and science breakthroughs**
-   - De: noreply@x.ai
-   - Fecha: 2026-06-01
-   - ID: 1899
+- Asunto: AI News & Innovations Tracker is ready
+  Remitente: Grok <noreply@x.ai>
+  Fecha: 25 de mayo de 2026, 15:06 UTC
 
-6. **Grok Build 0.1 now available via xAI API**
-   - De: noreply@x.ai
-   - Fecha: 2026-06-04
-   - ID: 1904
+- Asunto: New AI models and science breakthroughs
+  Remitente: Grok <noreply@x.ai>
+  Fecha: 1 de junio de 2026, 15:02 UTC
 
-7. **New AI models & science breakthroughs**
-   - De: noreply@x.ai
-   - Fecha: 2026-06-08
-   - ID: 1909
+- Asunto: Grok Build 0.1 now available via xAI API
+  Remitente: xAI <noreply@x.ai>
+  Fecha: 4 de junio de 2026, 18:54 UTC
 
-8. **Claude just embarrassed GPT-5.5**
-   - De: bytebuilders@mail.beehiiv.com
-   - Fecha: 2026-05-30
-   - ID: 1898
+- Asunto: New AI models & science breakthroughs
+  Remitente: Grok <noreply@x.ai>
+  Fecha: 8 de junio de 2026, 15:04 UTC
 
-9. **Your next laptop will run AI agents without the cloud**
-   - De: bytebuilders@mail.beehiiv.com
-   - Fecha: 2026-06-02
-   - ID: 1900
+- Asunto: Claude just embarrassed GPT-5.5
+  Remitente: ByteBuilders <bytebuilders@mail.beehiiv.com>
+  Fecha: 30 de mayo de 2026, 02:30 UTC
 
-10. **Microsoft just turned on OpenAI**
-    - De: bytebuilders@mail.beehiiv.com
-    - Fecha: 2026-06-04
-    - ID: 1901
+- Asunto: Microsoft just turned on OpenAI
+  Remitente: ByteBuilders <bytebuilders@mail.beehiiv.com>
+  Fecha: 4 de junio de 2026, 15:39 UTC
 
-11. **Free ChatGPT users just got the same AI as paid users**
-    - De: bytebuilders@mail.beehiiv.com
-    - Fecha: 2026-06-06
-    - ID: 1905
+- Asunto: Free ChatGPT users just got the same AI as paid users
+  Remitente: ByteBuilders <bytebuilders@mail.beehiiv.com>
+  Fecha: 6 de junio de 2026, 13:46 UTC
 
-12. **Your iPhone now runs Google's AI**
-    - De: bytebuilders@mail.beehiiv.com
-    - Fecha: 2026-06-08
-    - ID: 1908
+- Asunto: Your iPhone now runs Google's AI
+  Remitente: ByteBuilders <bytebuilders@mail.beehiiv.com>
+  Fecha: 8 de junio de 2026, 12:45 UTC
 
-13. **China just started firing people because of AI**
-    - De: bytebuilders@mail.beehiiv.com
-    - Fecha: 2026-06-10
-    - ID: 1911
+- Asunto: China just started firing people because of AI
+  Remitente: ByteBuilders <bytebuilders@mail.beehiiv.com>
+  Fecha: 10 de junio de 2026, 13:17 UTC
 
-### Comportamiento de Agentes y Coding
 
-14. **Copilot or coding agent: which one do you actually have? AgentNews#11**
-    - De: adi@newsletter.agentmail.to
-    - Fecha: 2026-05-08
-    - ID: 1886
+B) COMPORTAMIENTO DE AGENTES Y CODING
+(6 correos)
 
-15. **tokenmaxxing: signal or theatre? AgentNews#13**
-    - De: adi@newsletter.agentmail.to
-    - Fecha: 2026-05-21
-    - ID: 1894
+- Asunto: Your next laptop will run AI agents without the cloud
+  Remitente: Swati <bytebuilders@mail.beehiiv.com>
+  Fecha: 2 de junio de 2026, 11:16 UTC
 
-16. **Agents locking in has levels. LangGraph 1.2 cleared the first? AgentNews#14**
-    - De: adi@newsletter.agentmail.to
-    - Fecha: 2026-05-28
-    - ID: 1897
+- Asunto: Copilot or coding agent: which one do you actually have? AgentNews#11
+  Remitente: Adi from AgentMail <adi@newsletter.agentmail.to>
+  Fecha: 8 de mayo de 2026, 01:55 UTC
 
-17. **Are you ready for AI employees? - AgentNews#15**
-    - De: adi@newsletter.agentmail.to
-    - Fecha: 2026-06-04
-    - ID: 1903
+- Asunto: tokenmaxxing: signal or theatre? AgentNews#13
+  Remitente: Adi from AgentMail <adi@newsletter.agentmail.to>
+  Fecha: 21 de mayo de 2026, 16:02 UTC
 
-18. **The customers without heartbeats - AgentNews#15**
-    - De: adi@newsletter.agentmail.to
-    - Fecha: 2026-06-11
-    - ID: 1912
+- Asunto: Agents locking in has levels. LangGraph 1.2 cleared the first? AgentNews#14
+  Remitente: Adi from AgentMail <adi@newsletter.agentmail.to>
+  Fecha: 28 de mayo de 2026, 16:31 UTC
 
-### IA Generativa y Video
+- Asunto: Are you ready for AI employees? - AgentNews#15
+  Remitente: Adi from AgentMail <adi@newsletter.agentmail.to>
+  Fecha: 4 de junio de 2026, 17:11 UTC
 
-19. **Kling AI Effect: Viral Korean Baseball Trend**
-    - De: kling@user-service.klingai.com
-    - Fecha: 2026-05-14
-    - ID: 1891
+- Asunto: The customers without heartbeats - AgentNews#15
+  Remitente: Adi from AgentMail <adi@newsletter.agentmail.to>
+  Fecha: 11 de junio de 2026, 19:04 UTC
 
-20. **Create Viral AI Broadcast Videos in One Click**
-    - De: kling@user-service.klingai.com
-    - Fecha: 2026-05-17
-    - ID: 1892
 
-21. **Kling AI Anniversary II - More to Imagine, More to Create**
-    - De: kling@user-service.klingai.com
-    - Fecha: 2026-06-07
-    - ID: 1907
+C) IA GENERATIVA Y VIDEO
+(2 correos)
 
----
+- Asunto: Kling AI Effect: Viral Korean Baseball Trend
+  Remitente: Kling <kling@user-service.klingai.com>
+  Fecha: 14 de mayo de 2026, 22:11 UTC+8
 
-## Correos No Relevantes (8)
+- Asunto: Create Viral AI Broadcast Videos in One Click
+  Remitente: Kling <kling@user-service.klingai.com>
+  Fecha: 17 de mayo de 2026, 16:58 UTC+8
 
-1. **Acción necesaria: Cámbiate a una cuenta de Google Cloud de pago** (ID: 1885) - Administración Google Cloud
-2. **The Monthly Build - Google Developer Program - May 2026** (ID: 1889) - Newsletter genérico
-3. **HTML vs Markdown: What it's really about - AgentNews #12** (ID: 1890) - Desarrollo web, no IA
-4. **The Monthly Build - Google Developer Program - June 2026** (ID: 1902) - Newsletter genérico
-5. **Alerta de seguridad** (ID: 1906) - Alerta de seguridad genérica
-6. **Nuevos ajustes de privacidad para los servicios de la Búsqueda** (ID: 1910) - Privacidad Google
 
----
+3) LISTA DE CORREOS IRRELEVANTES
 
-## Acciones Tomadas
-
-- No se marcó ningún correo como leído (requiere autenticación con `gog` que está pendiente de completar OAuth).
-- Reporte generado en: `/mnt/c/Users/david.almeida/Documents/github-skills/analisisgmail/analisis_gmail2026-07-01.md`
-
----
-
-*Generado automáticamente por Hermes Agent - 01 de Julio de 2026*
+No se identificaron correos irrelevantes dentro del conjunto de 20 correos proporcionado.
+Todos los correos analizados se relacionaron directamente con al menos uno de los grupos tematicos definidos: Avances y Modelos de IA, Comportamiento de Agentes y Coding, o IA Generativa y Video.
+Si la solicitud contempla 8 correos irrelevantes adicionales fuera de este conjunto, se requiere proporcionar sus IDs para extraerlos y clasificarlos.
